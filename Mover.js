@@ -41,6 +41,13 @@ class Mover {
     savePower() {
         if (mouseIsPressed) {
             this.savedPower++;
+            this.savedPower = constrain(this.savedPower, 0, 5);
         }
+    }
+
+    turbulence() {
+        let tForce = p5.Vector.random2D();
+        tForce.mult(0.1);
+        this.applyForce(tForce);
     }
 }

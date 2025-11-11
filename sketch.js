@@ -16,6 +16,7 @@ function draw() {
   mover.checkEdges();
   mover.show();
   mover.savePower();
+  mover.turbulence();
 }
 
 function mouseReleased() {
