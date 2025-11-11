@@ -3,7 +3,8 @@ class Mover {
         this.position = createVector(width/2, height/2);
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
-        this.mass = random(0.5, 5);
+        this.mass = random(1, 10);
+        this.savedPower = 0;
     }
 
     applyForce(force) {
@@ -21,16 +22,25 @@ class Mover {
         stroke(0);
         fill(175);
 
-        circle(this.position.x, this.position.y, this.mass * 16);
+        circle(this.position.x, this.position.y, this.mass * 3);
     }
 
     checkEdges() {
-        if (this.position.y + this.mass * 8 > height) {
-            this.position.y = height - this.mass * 8;
+        if (this.position.y + this.mass * 1.5 > height) {
+            this.position.y = height - this.mass * 1.5;
             this.velocity.y *= -0.99;
         }
         if (this.position.x >= width) {
             this.position.x = 0;
+        }
+        //if (this.position.x <= 0) {
+            //this.position.x = width;
+        //}
+    }
+
+    savePower() {
+        if (mouseIsPressed) {
+            this.savedPower++;
         }
     }
 }

@@ -15,9 +15,14 @@ function draw() {
   mover.update();
   mover.checkEdges();
   mover.show();
+  mover.savePower();
+}
 
-  if (mouseIsPressed) {
-    let turb = createVector(random(0.01, 0.05), random(-0.02, 0.02));
-    mover.applyForce(turb);
+function mouseReleased() {
+  if (mover.savedPower > 0) {
+    let power = mover.savedPower;
+    let wind = createVector(power, 0);
+    mover.applyForce(wind);
+    mover.savedPower = 0;
   }
 }
