@@ -15,4 +15,9 @@ function draw() {
   mover.update();
   mover.checkEdges();
   mover.show();
+
+  if (mouseIsPressed) {
+    let turb = createVector(random(0.01, 0.05), random(-0.02, 0.02));
+    mover.applyForce(turb);
+  }
 }

@@ -29,5 +29,8 @@ class Mover {
             this.position.y = height - this.mass * 8;
             this.velocity.y *= -0.99;
         }
+        if (this.position.x >= width) {
+            this.position.x = 0;
+        }
     }
 }
