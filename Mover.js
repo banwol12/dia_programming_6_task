@@ -3,7 +3,7 @@ class Mover {
         this.position = createVector(width/2, height/2);
         this.velocity = createVector(0, 0);
         this.acceleration = createVector(0, 0);
-        this.mass = 1;
+        this.mass = random(0.5, 5);
     }
 
     applyForce(force) {
@@ -25,8 +25,8 @@ class Mover {
     }
 
     checkEdges() {
-        if (this.position.y > height) {
-            this.position.y = height;
+        if (this.position.y + this.mass * 8 > height) {
+            this.position.y = height - this.mass * 8;
             this.velocity.y *= -0.99;
         }
     }
